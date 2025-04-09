@@ -1,0 +1,14 @@
+---
+- name: delete user on all servers
+  hosts: all
+  tasks:
+    - name: delete a user
+      user:
+        name: pradeep1
+        password: Pradeep@123
+        uid: 1223
+        home: /tmp/pradeep1
+        comment: "a small user"
+        shell: /bin/bash
+
+...

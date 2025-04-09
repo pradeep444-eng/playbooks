@@ -1,0 +1,28 @@
+---
+- name: configure nginx
+  hosts: all
+  serial: 1
+  tasks: 
+     - name: install nginx
+       apt:
+         name: nginx
+         state: present
+         update_cache: yes
+     - name: edit index.html file
+       copy:
+         src: index.html
+         dest: /var/www/html
+     - name: restart nginx
+       service:
+         name: nginx
+         state: restarted
+     - name: check nginx response on server1
+       uri:
+         url: http://172.31.95.231
+         status_code: 200
+     - name: check nginx response on server2
+       uri:
+         url: http://172.31.87.110
+         status_code: 200
+
+...

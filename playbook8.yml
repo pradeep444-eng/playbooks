@@ -1,0 +1,16 @@
+---
+- name: Install git on server1
+  hosts: 172.31.95.231
+  tasks:
+    - name: Install git
+      apt:
+        name: git
+        state: present
+- name: uninstall git on server2
+  hosts: 172.31.87.110
+  tasks:
+    - name: uninstall git
+      apt:
+        name: git
+        state: absent
+...

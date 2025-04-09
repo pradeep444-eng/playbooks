@@ -1,0 +1,11 @@
+---
+- name: Install Java on all servers
+  hosts: all
+  tasks:
+    - name: Install java
+      apt:
+        name: openjdk-17-jdk
+        state: present
+        update_cache: yes
+
+...
