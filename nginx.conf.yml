@@ -1,0 +1,17 @@
+- name: Deploy nginx.conf to target servers
+  hosts: all
+  become: yes
+  tasks:
+    - name: Copy nginx.conf to /etc/nginx/nginx.conf
+      copy:
+        src: nginx.conf               
+        dest: /etc/nginx/nginx.conf   
+        owner: root
+        group: root
+        mode: '0644'
+        backup: yes         
+    - name: Restart nginx
+      service:
+        name: nginx
+        state: restarted
+
