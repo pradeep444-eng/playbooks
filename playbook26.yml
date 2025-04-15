@@ -1,0 +1,17 @@
+---
+- name: Install of tree based on Os flavour
+  hosts: all
+  tasks:
+    - name: Install tree on Ubuntu servers
+      apt:
+        name: tree
+        state: present
+        update_cache: yes
+      when: ansible_distribution == "ubuntu"
+    - name: Install tree on Redhat servers
+      yum: 
+        name: tree
+        state: present
+        update_cache: yes
+      when: ansible_distribution == "Redhat"
+... 
