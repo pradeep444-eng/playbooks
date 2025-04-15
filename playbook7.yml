@@ -12,9 +12,9 @@
         name: tomcat10-admin
         state: present
         update_cache: yes
-    - name: copy customised tomcat-user.xml file
+    - name: copy customised tomcat-users.xml file
       copy:
-        src: tomcat-user.xml
+        src: tomcat-users.xml
         dest: /etc/tomcat10
     - name: change port of tomcat on 8080 to 9090
       replace:

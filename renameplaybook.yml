@@ -1,0 +1,9 @@
+- name: Rename tomcat-user.xml to tomcat-users.xml on target servers
+  hosts: all
+  become: yes
+  tasks:
+    - name: Rename file
+      command: mv /etc/tomcat10/tomcat-user.xml /etc/tomcat10/tomcat-users.xml
+      args:
+        removes: /etc/tomcat10/tomcat-user.xml
+

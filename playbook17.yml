@@ -1,0 +1,20 @@
+---
+- name: Create users and copy files into users home dirs
+  hosts: all
+  tasks:
+    - name: create user
+      user:
+        name: "{{item.a}}"
+        password: "{{item.b}}"
+        home: "{{item.c}}"
+      with_items:
+        - {a: pradeep,b: pradeep@123,c: /home/pradeep}
+        - {a: Raju,b: Raju@123,c: /tmp/Raju}
+    - name: Copy files into users home dirs
+      copy:
+        src: "{{item.a}}"
+        dest: "{{item.b}}"
+      with_items:
+        - {a: /etc/passwd,b: /home/pradeep}
+        - {a: /etc/group,b: /tmp/Raju}
+... 
