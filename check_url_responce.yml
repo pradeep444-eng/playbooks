@@ -1,0 +1,9 @@
+---
+- name: url responce of apache
+  uri:
+    url: "{{item}}"
+    status_code: 200
+  with_items:
+    - http://172.31.95.231
+    - http://172.31.87.110
+...

@@ -1,0 +1,12 @@
+---
+- name: configure apache2 using multiple child playbook
+  hosts: all
+  tasks: 
+    - name: call multiple child playbook for install
+      include_tasks: "{{item}}"
+      with_items:
+        - install.yml
+        - edit_index.yml
+        - restart.yml
+        - check_url_responce.yml 
+...
