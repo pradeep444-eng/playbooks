@@ -1,0 +1,6 @@
+---
+# tasks file for apache2
+- include_tasks: install.yml
+- include_tasks: configure.yml
+- include_tasks: check_url_responce.yml
+...

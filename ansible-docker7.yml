@@ -1,0 +1,16 @@
+---
+- name: Download docker images
+  hosts: all
+  become: true
+  tasks:
+    - name: Pull Docker images
+      docker_image:
+        name: "{{ item }}"
+        source: pull
+      loop:
+        - nginx
+        - mysql
+        - tomcat
+        - ghost
+        - httpd
+
